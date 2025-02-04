@@ -77,6 +77,9 @@ async def delete_claim(policyholder_id: int, policy_id: int, claim_id: int, db: 
 async def delete_policyholder(policyholder_id: int, db: AsyncSession = Depends(get_db)):
     return await crud.delete_policyholder(db, policyholder_id)
 
+@app.get("/")
+def read_root():
+    return {"message": "Service is running"}
 
 
 if __name__ == "__main__":
